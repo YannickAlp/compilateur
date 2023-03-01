@@ -66,11 +66,13 @@ void Automate::reduction(int n,Symbole * s) {
     cout << endl;
     pileEtat.back()->transition(*this,s);
 }
+
 Symbole* Automate::popSymbol() {
     Symbole* s1=pileSymbole.back();
     pileSymbole.pop_back();
     return s1;
 }
+
 void Automate::popAndDestroySymbol() {
     delete(pileSymbole.back());
     pileSymbole.pop_back();
