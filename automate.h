@@ -1,6 +1,8 @@
 #include <string>
 #include "symbole.h"
 #include "lexer.h"
+#include <vector>
+
 class Etat;
 using namespace std;
 
@@ -14,5 +16,5 @@ class Automate{
    protected:
       vector <Symbole*> pileSymbole;
       vector <Etat*> pileEtat;
-      Lexer lexer;
+      Lexer * lexer;
 };

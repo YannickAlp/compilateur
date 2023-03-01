@@ -1,4 +1,6 @@
-bool E0::transition(Automate &a; Symbole * s) {
+#include "etat.h"
+
+bool E0::transition(Automate &a, Symbole * s) {
     switch(*s) {
         case OPENPAR:
             break;
@@ -23,7 +25,7 @@ bool E0::transition(Automate &a; Symbole * s) {
 
         case EXPR:
             break;
-            
+
         default:
             break;
     }

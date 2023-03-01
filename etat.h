@@ -15,7 +15,8 @@ class Etat {
 
 class E0 : public Etat {
     public:
-        E0() : name("E0"){ }
+        E0() { }
         ~E0() { }
+        bool transition(Automate &a, Symbole * s)=0;
 };
 

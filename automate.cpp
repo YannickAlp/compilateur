@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include "automate.h"
 
 void Automate::decalage(Symbole * s, Etat * e) {
@@ -10,14 +9,11 @@ void Automate::decalage(Symbole * s, Etat * e) {
     }
 }
 
-void Automate::reduction(Symbole * s, Etat * e) {
-    int n = 5;
-    for (int i = 0; i < n; i++) {
-        cout << pileSymbole[pileSymbole.size()-1] << endl;
-        pileSymbole.pop_back();
+void Automate::reduction(int n,Symbole * s) {
+    for (int i=0;i<n;i++)
+    {
+        delete(pileEtat.back());
         pileEtat.pop_back();
     }
-    if (s->isTerminal()) {
-        lexer->Avancer();
-    }
+    pileEtat.back()->transition(*this,s);
 }
