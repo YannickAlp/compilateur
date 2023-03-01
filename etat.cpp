@@ -52,10 +52,15 @@ bool E1::transition(Automate &a, Symbole * s) {
             a.decalage(s, new E4());
             break;
 
+        case MULT:
+            a.decalage(s, new E5());
+            break;
+
         case INT:
             break;
 
         case FIN:
+        cout << "on passe dedans" << endl;
             return true;
             break;
 
@@ -97,6 +102,7 @@ bool E2::transition(Automate &a, Symbole * s) {
             break;
 
         case EXPR:
+            a.decalage(s, new E6());
             break;
 
         default:
@@ -172,6 +178,7 @@ bool E4::transition(Automate &a, Symbole * s) {
             break;
 
         case EXPR:
+            a.decalage(s, new E7());
             break;
 
         default:
@@ -206,6 +213,7 @@ bool E5::transition(Automate &a, Symbole * s) {
             break;
 
         case EXPR:
+            a.decalage(s, new E8());
             break;
 
         default:

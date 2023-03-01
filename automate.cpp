@@ -17,7 +17,7 @@ Automate::Automate(string ch){
     lexer = new Lexer(chaine);
     Symbole * s;
 
-    while(*(s = lexer->Consulter()) != FIN) {
+    while(*(s = lexer->Consulter()) != FIN ) {
         s->Affiche();
         cout << endl;
         pileEtat.back()->transition(*this,s);
@@ -25,11 +25,35 @@ Automate::Automate(string ch){
             pileEtat[i]->Affiche();
         }
         cout << endl;
+
+        for (int i = 0; i < pileSymbole.size(); i++) {
+            pileSymbole[i]->Affiche();
+        }
+        cout << endl;
+
+        lexer->Avancer();
+    }
+
+    while(pileSymbole.size() != 1) {
+        s->Affiche();
+        cout << endl;
+        pileEtat.back()->transition(*this,s);
+        for (int i = 0; i < pileEtat.size(); i++) {
+            pileEtat[i]->Affiche();
+        }
+        cout << endl;
+
+        for (int i = 0; i < pileSymbole.size(); i++) {
+            pileSymbole[i]->Affiche();
+        }
+        cout << endl;
+
         lexer->Avancer();
     }
 }
 
 void Automate::reduction(int n,Symbole * s) {
+    lexer->Reculer();
     cout << "Reduction" << endl;
     for (int i=0;i<n;i++)
     {
@@ -38,6 +62,7 @@ void Automate::reduction(int n,Symbole * s) {
     }
     cout << "Symbole ";
     s->Affiche();
+    pileEtat.back()-> Affiche();
     cout << endl;
     pileEtat.back()->transition(*this,s);
 }
