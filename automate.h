@@ -1,5 +1,6 @@
 #include <string>
 #include "symbole.h"
+#include "lexer.h"
 class Etat;
 using namespace std;
 
@@ -9,7 +10,7 @@ class Automate{
       ~Automate() { }
 
    protected:
-      string flux;
-      int tete;
-      Symbole * tampon;
+      vector <Symbole*> pileSymbole;
+      vector <Etat*> pileEtat;
+      Lexer lexer;
 };
